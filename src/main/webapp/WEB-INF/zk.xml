@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by ZK Studio -->
+
+<zk>
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>/timeout.zul</timeout-uri><!-- An empty URL can cause the 
+			browser to reload the same URL -->
+	</device-config>
+
+	<richlet>
+		<richlet-name>Test</richlet-name><!-- your preferred name -->
+		<richlet-class>com.iispl.richlet.RichLet</richlet-class><!-- your class 
+			name, of course -->
+	</richlet>
+	<richlet-mapping>
+		<richlet-name>Test</richlet-name>
+		<url-pattern>/test</url-pattern>
+	</richlet-mapping>
+	<richlet-mapping>
+		<richlet-name>Test</richlet-name>
+		<url-pattern>/some/more/*</url-pattern>
+	</richlet-mapping>
+
+	<richlet>
+		<richlet-name>myRichlet</richlet-name><!-- your preferred name -->
+		<richlet-class>com.iispl.richlet.RichLet2</richlet-class><!-- your class 
+			name, of course -->
+	</richlet>
+	<richlet-mapping>
+		<richlet-name>myRichlet</richlet-name>
+		<url-pattern>/click</url-pattern>
+	</richlet-mapping>
+	<richlet-mapping>
+		<richlet-name>myRichlet</richlet-name>
+		<url-pattern>/add/more/*</url-pattern>
+	</richlet-mapping>
+	<richlet>
+		<richlet-name>Richlet</richlet-name><!-- your preferred name -->
+		<richlet-class>com.iispl.richlet.GenericRichlet</richlet-class><!-- your 
+			class name, of course -->
+	</richlet>
+	<richlet-mapping>
+		<richlet-name>Richlet</richlet-name>
+		<url-pattern>/enter</url-pattern>
+	</richlet-mapping>
+	<richlet-mapping>
+		<richlet-name>Richlet</richlet-name>
+		<url-pattern>/next/*</url-pattern>
+	</richlet-mapping>
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>/timeout.zul</timeout-uri>
+	</device-config>
+	<language-config>
+		<addon-uri>/WEB-INF/lang-addon.xml</addon-uri>
+	</language-config>
+</zk>

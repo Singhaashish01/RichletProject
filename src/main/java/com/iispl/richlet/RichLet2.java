@@ -1,0 +1,28 @@
+package com.iispl.richlet;
+
+import org.zkoss.zk.ui.GenericRichlet;
+import org.zkoss.zk.ui.Page;
+import org.zkoss.zul.Button;
+import org.zkoss.zul.Label;
+import org.zkoss.zul.Window;
+
+public class RichLet2 extends GenericRichlet{
+
+	@Override
+	public void service(Page page) throws Exception {
+		// TODO Auto-generated method stub
+		page.setTitle("Richlet Example");
+		
+		 Window w = new Window("Richlet Class", "normal", false);
+		new Label("Hii Kunal").setParent(w);
+		final Label l = new Label("New Label");
+		l.setParent(w);
+		
+		final Button b = new Button("Change");
+		b.setParent(w);
+		w.setPage(page);
+		
+	}
+	
+
+}

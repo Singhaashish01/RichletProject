@@ -1,0 +1,17 @@
+<?page title="Macro " contentType="text/html;charset=UTF-8"?>
+<zk>
+<vbox align="center" pack="center" height="100%" width="100%">
+<inputgroup>
+Username: <textbox id="tUsername"/>
+</inputgroup>
+<separator/>
+<inputgroup>
+Password: <textbox id="tPassword"/>
+</inputgroup>
+<space/>
+<hbox align="center" pack="center" height="100%" width="100%">
+<button id="bSubmit" label="Submit"/>
+<button id="bReset" label="Reset"/>
+</hbox>
+</vbox>
+</zk>

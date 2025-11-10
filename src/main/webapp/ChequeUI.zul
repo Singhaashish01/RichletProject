@@ -1,0 +1,40 @@
+<?page title="Cheque UI" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+
+	<hbox align="center" pack="center" width="100%"
+		style="margin-top:50px">
+		<label value="Total pending cheques for verification:"
+			style="font-size: 16px; font-weight: bold; color: #333;" />
+		<combobox>
+			<comboitem label="Priyanshu" />
+			<comboitem label="Aashu" />
+		</combobox>
+		<button label="Get Cheques" sclass="btn-primary"
+			onClick="@command('getCheques')" style="margin-left: 20px;" />
+	</hbox>
+
+	<borderlayout height="450px">
+		<north border="none"
+			style="padding: 10px; background: #f9f9f9;">
+
+		</north>
+		<east size="30%">
+			<div>
+				<div>
+					<hbox class="heading">
+						<label value="Referal Validation"
+							class="heading" />
+					</hbox>
+
+				</div>
+
+			</div>
+
+		</east>
+
+
+	</borderlayout>
+
+
+</zk>

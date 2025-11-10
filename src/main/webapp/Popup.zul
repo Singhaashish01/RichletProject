@@ -1,0 +1,12 @@
+<?page title="Popup Window" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Popup Window" position="center" mode="modal"
+		border="normal" style="align:center;"
+		apply="com.iispl.internationalization.PopupComposer">
+		<radiogroup>
+			<radio id="radioEng" label="English" />
+			<radio id="radioHin" label="Hindi" />
+			<radio id="radioFre" label="French" />
+		</radiogroup>
+	</window>
+</zk>

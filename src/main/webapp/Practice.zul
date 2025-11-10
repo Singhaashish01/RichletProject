@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+    This ZK .zul file recreates the cheque verification UI from the screenshots.
+    It uses a borderlayout for the main page structure.
+-->
+
+<zk>
+
+    <!-- 
+      We use a window with hflex="1" and vflex="1" to make the UI
+      fill the entire browser page.
+      
+      The apply/viewModel attributes are placeholders for ZK's MVVM pattern.
+      You would create a Java class (e.g., 'your.package.ChequeViewModel') 
+      to handle data and events.
+    -->
+    <window border="none" hflex="1" vflex="1">
+
+        <!-- 
+          borderlayout is the main component for this screen.
+          - north: For the header and "Get Cheques" button.
+          - east: For the long list of Yes/No questions on the right.
+          - center: For the main workspace (image viewer, grids, etc.)
+        -->
+        <borderlayout hflex="1" vflex="1">
+
+            <!-- NORTH REGION: Header -->
+            <north border="none" style="padding: 10px; background: #f9f9f9; border-bottom: 1px solid #ddd;">
+                <hbox hflex="1" vflex="1" align="center">
+                    <label value="Total pending cheques for verification:"
+                           style="font-size: 16px; font-weight: bold; color: #333;"/>
+                    <!-- 
+                      This button would call a 'getCheques' command 
+                      in the ViewModel.
+                    -->
+                    <button label="Get Cheques" sclass="btn-primary" 
+                            onClick="@command('getCheques')"
+                            style="margin-left: 20px;" />
+                </hbox>
+            </north>
+
+            <!-- EAST REGION: Right-hand Questions and Actions -->
+            <east size="35%" splittable="true" collapsible="true"
+                  title="Verification Panel" autoscroll="true"
+                  style="background: #fdfdfd;">
+                
+                <vlayout hflex="1" vflex="1" style="padding: 10px;">
+                    
+                    <!-- This grid holds all the Yes/No questions -->
+                    <groupbox hflex="1" mold="3d">
+                        <caption label="Verification Checks" />
+                        <grid hflex="1" vflex="1" sclass="small-grid">
+                            <columns>
+                                <column label="Check" />
+                                <column hflex="min" width="100px" align="center" />
+                            </columns>
+                            <rows>
+                                <!-- Each question is a row. Data would be bound via MVVM. -->
+                                <row>
+                                    <label value="Signature above in KTS?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Mismatch authority line?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Branch derivative for referral?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Special handling details for referral?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Signature Mismatch?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Unreadable/illegible details or signature?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row sclass="section-separator">
+                                    <separator bar="true" />
+                                    <separator bar="true" />
+                                </row>
+                                <row>
+                                    <label value="Date allowed?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Date altered?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="POST-DATED check?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="STALE-DATED check?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row sclass="section-separator">
+                                    <separator bar="true" />
+                                    <separator bar="true" />
+                                </row>
+                                <row>
+                                    <label value="Amount in figures mismatch?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Amount in figures altered?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Amount in words missing?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Amount in words altered?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <row>
+                                    <label value="Amount in figures not matching to words?" />
+                                    <radiogroup>
+                                        <radio label="Yes"/><radio label="No"/>
+                                    </radiogroup>
+                                </row>
+                                <!-- ... truncated for brevity, add all questions here ... -->
+                            </rows>
+                        </grid>
+                    </groupbox>
+
+                    <!-- Remarks and Disposition Sections -->
+                    <groupbox title="Special Handling Remarks" hflex="1" mold="3d">
+                        <textbox multiline="true" rows="3" hflex="1" />
+                    </groupbox>
+
+                    <groupbox hflex="1" mold="3d">
+                        <caption label="System Disposition" />
+                        <vlayout hflex="1">
+                            <combobox hflex="1" /> 
+                            <label value="Return Reason" />
+                            <textbox multiline="true" rows="3" hflex="1" />
+                        </vlayout>
+                    </groupbox>
+
+                    <!-- Action Buttons -->
+                    <hbox pack="end" hflex="1" style="margin-top: 10px;">
+                        <button label="Save" sclass="btn-primary" 
+                                onClick="@command('saveVerification')"/>
+                        <button label="Revalidate" 
+                                onClick="@command('revalidate')"/>
+                    </hbox>
+
+                </vlayout>
+            </east>
+
+            <!-- CENTER REGION: Main Workspace -->
+            <center border="none" style="padding: 10px;">
+                <vlayout hflex="1" vflex="1">
+                    
+                    <!-- Top Part: Image Viewer -->
+                    <!-- vflex="3" gives this area more vertical space -->
+                    <hbox hflex="1" vflex="3" style="min-height: 300px;">
+                        
+                        <!-- Vertical Toolbar -->
+                        <vbox width="40px" sclass="toolbar-v" align="center" pack="center">
+                            <button iconSclass="z-icon-search-plus" />
+                            <button iconSclass="z-icon-search-minus" />
+                            <button iconSclass="z-icon-arrows" />
+                            <button iconSclass="z-icon-rotate-left" />
+                            <button iconSclass="z-icon-rotate-right" />
+                        </vbox>
+                        
+                        <!-- Image Area + Horizontal Toolbar -->
+                        <vbox hflex="1" vflex="1">
+                            <toolbar>
+                                <radiogroup>
+                                    <radio label="Front" checked="true" />
+                                    <radio label="Back" />
+                                </radiogroup>
+                                <separator orient="vertical" />
+                                <button label="Greyscale" />
+                                <button label="UV" />
+                            </toolbar>
+                            
+                            <!-- Placeholder for the cheque image -->
+                            <div hflex="1" vflex="1" 
+                                 style="border: 1px solid #ccc; background: #f0f0f0; text-align: center; position: relative;">
+                                <!-- 
+                                  In a real app, you'd bind the 'src'
+                                  to your ViewModel.
+                                -->
+                                <image src="@load(vm.chequeImageSrc)" 
+                                       style="max-width: 100%; max-height: 100%;" />
+                                <!-- Placeholder label if no image -->
+                                <label value="[Cheque Image Area]" 
+                                       style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #999;"/>
+                            </div>
+                        </vbox>
+                    </hbox>
+                    
+                    <!-- Bottom Part: Inputs & Grids -->
+                    <!-- vflex="2" gives this area less vertical space -->
+                    <hbox hflex="1" vflex="2" style="margin-top: 10px; min-height: 250px;">
+
+                        <!-- Bottom-Left: Signature Input & Left Y/N Panel -->
+                        <vbox hflex="1" vflex="1" style="padding-right: 5px;">
+                            
+                            <!-- Signature Input -->
+                            <grid hflex="1">
+                                <rows>
+                                    <row>
+                                        <label value="No. of Signatures" />
+                                        <intbox width="50px" />
+                                        <label value="Requested" />
+                                        <hbox>
+                                            <button iconSclass="z-icon-arrow-up" />
+                                            <button iconSclass="z-icon-arrow-down" />
+                                            <button iconSclass="z-icon-search" />
+                                        </hbox>
+                                    </row>
+                                    <row spans="4">
+                                        <label value="Special Instructions" />
+                                    </row>
+                                    <row spans="4">
+                                        <textbox multiline="true" rows="3" hflex="1" />
+                                    </row>
+                                </rows>
+                            </grid>
+                            
+                            <!-- Left Y/N Panel -->
+                            <groupbox hflex="1" vflex="1" mold="3d" autoscroll="true">
+                                <caption label="MICR Details" />
+                                <grid hflex="1" vflex="1" sclass="small-grid">
+                                    <columns>
+                                        <column label="Check" />
+                                        <column hflex="min" width="100px" align="center" />
+                                    </columns>
+                                    <rows>
+                                        <row>
+                                            <label value="Missing Payee?" />
+                                            <radiogroup>
+                                                <radio label="Yes"/><radio label="No"/>
+                                            </radiogroup>
+                                        </row>
+                                        <row>
+                                            <label value="Payee Line Indicator: Payee AND/OR payee?" />
+                                            <radiogroup>
+                                                <radio label="Yes"/><radio label="No"/>
+                                            </radiogroup>
+                                        </row>
+                                        <row>
+                                            <label value="Payee Line Indicator: Government Agency AND/OR Cash?" />
+                                            <radiogroup>
+                                                <radio label="Yes"/><radio label="No"/>
+                                            </radiogroup>
+                                        </row>
+                                        <!-- ... Add all other questions here ... -->
+                                    </rows>
+                                </grid>
+                            </groupbox>
+                        </vbox>
+                        
+                        <!-- Bottom-Right: MICR Details Grid -->
+                        <vbox hflex="1" vflex="1" style="padding-left: 5px;">
+                            <grid hflex="1" vflex="1" 
+                                  emptyMessage="No MICR details found." 
+                                  mold="paging" pageSize="4">
+                                <columns>
+                                    <column label="MICR Details" />
+                                    <column label="Cheque #" />
+                                    <column label="BRSTN" />
+                                    <column label="Account #" />
+                                    <column label="TC" />
+                                    <column label="Amount" align="right" />
+                                </columns>
+                                <!-- 
+                                  In a real app, these rows would be populated 
+                                  by data-binding to a list in your ViewModel.
+                                  <rows model="@load(vm.micrDetails)">
+                                    <template name="model">
+                                      <row>
+                                        <label value="@load(each.detail)" />
+                                        <label value="@load(each.chequeNum)" />
+                                        ...
+                                      </row>
+                                    </template>
+                                  </rows>
+                                -->
+                                <rows>
+                                    <!-- Static placeholder data -->
+                                    <row>
+                                        <label value="Detail 1" />
+                                        <label value="123456" />
+                                        <label value="987654" />
+                                        <label value="...1001" />
+                                        <label value="10" />
+                                        <label value="1,000.00" />
+                                    </row>
+                                    <row>
+                                        <label value="Detail 2" />
+                                        <label value="123457" />
+                                        <label value="987654" />
+                                        <label value="...1002" />
+                                        <label value="11" />
+                                        <label value="2,500.50" />
+                                    </row>
+                                </rows>
+                            </grid>
+                        </vbox>
+                    </hbox>
+                </vlayout>
+            </center>
+        </borderlayout>
+        
+        <!-- Optional: Add some simple styling to improve density -->
+        <style>
+            /* Make grids more compact */
+            .small-grid .z-row-content {
+                padding: 4px 8px;
+            }
+            .small-grid .z-row-inner {
+                padding: 0;
+            }
+            .small-grid .z-label {
+                font-size: 13px;
+            }
+            
+            /* Style for the vertical toolbar */
+            .toolbar-v {
+                 background: #f0f0f0; 
+                 border: 1px solid #ccc;
+                 border-right: none;
+                 border-radius: 4px 0 0 4px;
+            }
+            .toolbar-v .z-button {
+                margin: 5px 2px;
+            }
+            
+            /* Separator row in the grid */
+            .section-separator .z-row-content {
+                padding: 2px 0 !important;
+            }
+            
+        </style>
+
+    </window>
+</zk>

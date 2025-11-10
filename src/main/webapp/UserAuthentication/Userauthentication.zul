@@ -1,0 +1,14 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="new page title" border="normal" apply="com.iispl.userauthentication.LoginComposer">
+<inputgroup>
+Username: <textbox id="username"/>
+</inputgroup>
+<separator/>
+<inputgroup>
+Password: <textbox id="pwd" type="password"/>
+</inputgroup>
+<separator/>
+<button id="logn" label="Login"/>
+</window>
+</zk>

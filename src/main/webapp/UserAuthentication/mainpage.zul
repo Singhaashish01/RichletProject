@@ -1,0 +1,16 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Mainpage" border="normal" apply="com.iispl.userauthentication.MainpageComposer">
+<hbox>
+<button id="loginBtn" label="Login"/>
+</hbox>
+<separator/>
+<navbar>
+<navitem label="Home" />
+<navitem label="Accounts"/>
+<navitem label="Loans"/>
+<navitem label="About"/>
+<navitem label="Contact Us"/>
+</navbar>
+</window>
+</zk>

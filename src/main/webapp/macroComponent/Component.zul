@@ -1,0 +1,6 @@
+<?page title="Login Page" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Login Page" border="normal" apply="com.iispl.macro.LoginComposer">
+<loginscreen id="ls"/>
+</window>
+</zk>

@@ -1,0 +1,15 @@
+<?page title="Internationalization" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Internationalization" id="win" border="normal" closable="true" apply="com.iispl.internationalization.InternationalizationComposer">
+<hbox  height="100%" width="100%" align="center" pack="center">
+<a id="english" label="English"/>
+<label value="|"/>
+<a id="hindi" label="Hindi"/>
+<label value="|"/>
+<a id="french" label="French"/>
+
+
+</hbox>
+<label>${labels.click }</label>
+</window>
+</zk>
