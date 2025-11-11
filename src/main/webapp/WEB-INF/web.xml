@@ -36,12 +36,12 @@
 		<filter-name>RichletFilter</filter-name>
 		<url-pattern>/zk/*</url-pattern>
 	</filter-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>zkLoader</servlet-name>
 		<url-pattern>/zk/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>zkLoader</servlet-name>
 		<url-pattern>*.zul</url-pattern>
@@ -50,7 +50,12 @@
 		<servlet-name>zkLoader</servlet-name>
 		<url-pattern>*.zhtml</url-pattern>
 	</servlet-mapping>
-	
+
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
+
+
 	<servlet-mapping>
 		<servlet-name>auEngine</servlet-name>
 		<url-pattern>/zkau/*</url-pattern>

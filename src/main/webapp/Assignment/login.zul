@@ -1,0 +1,10 @@
+<zk>
+    <window title="Login Page" border="normal" width="400px" apply="com.iispl.assignment.LoginComposer">
+        <vlayout>
+            <textbox id="username" placeholder="Enter Username" />
+            <textbox id="password" type="password" placeholder="Enter Password" />
+            <button id="loginBtn" label="Login" />
+            <label id="message" style="color:red" />
+        </vlayout>
+    </window>
+</zk>

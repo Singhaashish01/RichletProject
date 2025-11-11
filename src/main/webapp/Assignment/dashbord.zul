@@ -1,0 +1,5 @@
+<zk>
+    <window title="Admin Dashboard" border="normal" apply="com.iispl.assignment.DashboardComposer">
+        <label value="Welcome to Admin Dashboard!" style="font-size:18px;font-weight:bold;color:green" />
+    </window>
+</zk>

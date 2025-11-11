@@ -1,0 +1,8 @@
+<zk>
+    <window title="Access Denied" border="normal" width="400px" height="200px">
+        <vbox>
+            <label value="Access Denied! You do not have permission to view this page." style="color:red;font-weight:bold"/>
+            <button label="Go Back to Login" onClick='Executions.sendRedirect("/login.zul")' />
+        </vbox>
+    </window>
+</zk>
