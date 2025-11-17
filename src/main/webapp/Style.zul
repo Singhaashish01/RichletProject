@@ -1,0 +1,37 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window>
+    <style>
+        .red {
+            color: blue;
+            font-style: oblique;
+        }
+    </style>
+    <hbox pack="center" align="center" height="100%">
+    <inputgroup>
+    Username: <textbox sclass="red" /> 
+    </inputgroup>
+    <inputgroup>
+    Password: <textbox zclass="red" /> 
+    </inputgroup>
+    <button id="logn" label="Login"/>
+    <space/>
+    <button id="reset" label="Reset"/>
+    </hbox>	
+    
+    <separator/>
+    <separator/>
+    
+        <hbox pack="center" align="center" height="100%">
+    <inputgroup>
+    Username: <textbox sclass="xyz" /> 
+    </inputgroup>
+    <inputgroup>
+    Password: <textbox zclass="xyz" /> 
+    </inputgroup>
+    <button id="lognB" label="Login"/>
+    <space/>
+    <button id="resetB" label="Reset"/>
+    </hbox>	
+</window>
+</zk>

@@ -1,12 +1,26 @@
 <?page title="Popup Window" contentType="text/html;charset=UTF-8"?>
 <zk>
-	<window title="Popup Window" position="center" mode="modal"
-		border="normal" style="align:center;"
-		apply="com.iispl.internationalization.PopupComposer">
-		<radiogroup>
-			<radio id="radioEng" label="English" />
-			<radio id="radioHin" label="Hindi" />
-			<radio id="radioFre" label="French" />
-		</radiogroup>
-	</window>
+    <window title="Popup Window" position="center" mode="modal"
+        border="normal" style="align:center;"
+        apply="com.iispl.internationalization.PopupComposer">
+
+        <vlayout spacing="10px">
+            <label value="Select Language:"/>
+            <radiogroup>
+                <radio id="radioEng" label="English" />
+                <radio id="radioHin" label="Hindi" />
+                <radio id="radioFre" label="French" />
+            </radiogroup>
+
+            <separator/>
+
+            <label value="Select Theme:"/>
+            <combobox id="themeBox" placeholder="Choose theme...">
+                <comboitem label="Atlantic" value="atlantic"/>
+                <comboitem label="Iceblue" value="iceblue"/>
+                <comboitem label="Breeze" value="breeze"/>
+                <comboitem label="Silvertail" value="silvertail"/>
+            </combobox>
+        </vlayout>
+    </window>
 </zk>

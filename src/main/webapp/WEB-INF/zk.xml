@@ -56,4 +56,10 @@
 	<language-config>
 		<addon-uri>/WEB-INF/lang-addon.xml</addon-uri>
 	</language-config>
+
+	<!-- zk.xml -->
+	<library-property>
+		<name>org.zkoss.theme.preferred</name>
+		<value>breeze</value> <!-- or silvertail, atlantic, deepsea, gardensalad etc. -->
+	</library-property>
 </zk>
