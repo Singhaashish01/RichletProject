@@ -1,0 +1,18 @@
+<?page title="Students" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+    <window title="Student List" border="normal"
+            apply="com.iispl.exercise.StudentController"
+            width="510px">
+
+        <listbox id="studentListbox" width="100%" mold="paging" pageSize="5" >
+            <listhead>
+                <listheader label="ID"/>
+                <listheader label="Name"/>
+                <listheader label="Marks"/>
+            </listhead>
+        </listbox>
+
+    </window>
+
+</zk>

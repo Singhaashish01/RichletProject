@@ -1,0 +1,34 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="new page title" border="normal" apply="com.iispl.renderer.ListBoxComposer">
+		<hbox>
+			<listbox id="lb1" multiple="true" itemRenderer="com.iispl.renderer.FruitRenderer">
+				<listhead>
+					<listheader label="Item" sort="auto" />
+					<listheader label="Price" />
+					<listheader label="Quantity" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="${each[0]}" />
+						<listcell label="${each[1]}" />
+						<listcell label="${each[2]}" />
+					</listitem>
+				</template>
+			</listbox>
+
+			<listbox id="lb2">
+				<listhead>
+					<listheader label="Item" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell>${each[0]}</listcell>
+						<listcell>${each[1]}</listcell>
+					</listitem>
+				</template>
+			</listbox>
+
+		</hbox>
+	</window>
+</zk>
