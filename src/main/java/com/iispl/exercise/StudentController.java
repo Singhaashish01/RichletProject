@@ -10,17 +10,27 @@ import org.zkoss.zul.Window;
 
 public class StudentController extends SelectorComposer<Window>{
 
-	@Wire
-    private Listbox studentListbox;
+	  @Wire
+	    private Listbox studentListbox;
 
-    @Override
-    public void doAfterCompose(Window comp) throws Exception {
-        super.doAfterCompose(comp);
+	    private ListModelList<Student> lml;
 
-        DBConnection db = new DBConnection();
-        List<Student> students = db.getAllStudents();
-        ListModelList<Student> lml = new ListModelList<>(students);
-        studentListbox.setModel(lml);
-        studentListbox.setItemRenderer(new StudentRenderer());
-    }
+	    @Override
+	    public void doAfterCompose(Window comp) throws Exception {
+	        super.doAfterCompose(comp);
+
+	        DBConnection db = new DBConnection();
+	        lml = new ListModelList<>(db.getAllStudents());
+	        studentListbox.setModel(lml);
+	        studentListbox.setItemRenderer(new StudentRenderer(this));
+	    }
+
+	    
+	    public void deleteStudent(Student s) {
+	        DBConnection db = new DBConnection();
+
+	        if (db.deleteStudent(s.getId())) {
+	            lml.remove(s);   
+	        }
+	    }
 }

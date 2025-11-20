@@ -4,15 +4,14 @@
     <window title="Student List" border="normal"
             apply="com.iispl.exercise.StudentController"
             width="510px">
-
-        <listbox id="studentListbox" width="100%" mold="paging" pageSize="5" >
+        <listbox id="studentListbox" width="100%" mold="paging" pageSize="10">
             <listhead>
                 <listheader label="ID"/>
                 <listheader label="Name"/>
                 <listheader label="Marks"/>
+                <listheader label="Action" width="140px"/>
             </listhead>
         </listbox>
-
     </window>
 
 </zk>

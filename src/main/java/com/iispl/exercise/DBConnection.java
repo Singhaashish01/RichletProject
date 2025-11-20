@@ -40,4 +40,24 @@ public class DBConnection {
 	        }
 	        return list;
 	    }
+	    
+	    public boolean deleteStudent(int id) {
+
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection(URL, USER, PASS);
+
+                String sql = "DELETE FROM student WHERE id = ?";
+                PreparedStatement pstmt = con.prepareStatement(sql);
+                pstmt.setInt(1, id);
+
+                int rows = pstmt.executeUpdate();
+                con.close();
+
+                return rows > 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return false;
+        }
 	}

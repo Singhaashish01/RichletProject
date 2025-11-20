@@ -1,0 +1,15 @@
+<?page title="Login Page" contentType="text/html;charset=UTF-8"?>
+<zk>
+<vbox align="center" pack="center" width="100%">
+<window title="Login Page" border="normal" width="100%" apply="com.iispl.messagedigest.LoginComposer">
+
+<label value="Username:"/>
+<textbox id="tUsername"/>
+<separator/>
+<label value="Password:"/>
+<textbox id="tPassword"/>
+<separator/>
+<button label="Login" id="loginBtn" />
+</window>
+</vbox>
+</zk>
